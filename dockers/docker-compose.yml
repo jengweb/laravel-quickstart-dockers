@@ -13,4 +13,3 @@ services:
             - MYSQL_USER=my_user
             - MYSQL_PASSWORD=my_password
             - MYSQL_DATABASE=my_database
-        restart: always
