@@ -2,7 +2,7 @@ version: '2'
 
 services:
     nginx:
-        image: 3dsinteractive/nginx:1.12
+        image: jengweb/nginx:1.12
         depends_on:
             - phpfpm
         ports:
@@ -13,7 +13,7 @@ services:
             - /var/dockers/laravel-quickstart-internal.com/nginx:/bitnami/nginx
             - /var/dockers/laravel-quickstart-internal.com/logs:/opt/bitnami/nginx/logs
     phpfpm:
-        image: 3dsinteractive/php-fpm:7.1
+        image: jengweb/php-fpm:7.1
         restart: always
         volumes:
             - /var/www/laravel-quickstart-internal.com:/app
