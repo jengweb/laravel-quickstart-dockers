@@ -16,7 +16,7 @@ services:
         image: jengweb/php-fpm:7.1
         restart: always
         ports:
-            - 8080:8080
+            - 9000:9000
         volumes:
             - /var/www/laravel-quickstart-production.com:/app
             - /var/dockers/laravel-quickstart-production.com/php-fpm:/bitnami/php-fpm
