@@ -6,7 +6,7 @@ services:
         depends_on:
             - phpfpm
         ports:
-            - 8082:8080
+            - 80:8080
         restart: always
         volumes:
             - /var/www/laravel-quickstart-production.com:/app
