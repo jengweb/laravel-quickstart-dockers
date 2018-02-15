@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+    nginx:
+        image: jengweb/nginx:1.12
+        depends_on:
+            - phpfpm
+        ports:
+            - 80:8080
+        restart: always
+        volumes:
+            - /var/www/laravel-quickstart-production.com:/app
+            - /var/dockers/laravel-quickstart-production.com/nginx:/bitnami/nginx
+            - /var/dockers/laravel-quickstart-production.com/logs:/opt/bitnami/nginx/logs
+    phpfpm:
+        image: jengweb/php-fpm:7.1
+        restart: always
+        ports:
+            - 9000:9000
+        volumes:
+            - /var/www/laravel-quickstart-production.com:/app
+            - /var/dockers/laravel-quickstart-production.com/php-fpm:/bitnami/php-fpm
