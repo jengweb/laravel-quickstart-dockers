@@ -9,31 +9,31 @@ services:
             - web1
             - web2
         volumes:
-            - /var/dockers/laravel-quickstart-production.com/web/lb/logs:/opt/bitnami/nginx/logs
-            - /var/dockers/laravel-quickstart-production.com/web/lb/nginx:/bitnami/nginx
+            - ./web/lb/logs:/opt/bitnami/nginx/logs
+            - ./web/lb/nginx:/bitnami/nginx
     web1:
         image: jengweb/nginx:1.12
         depends_on:
             - web1-phpfpm
         volumes:
             - /var/www/laravel-quickstart-production.com:/app
-            - /var/dockers/laravel-quickstart-production.com/web/web1/logs:/opt/bitnami/nginx/logs
-            - /var/dockers/laravel-quickstart-production.com/web/web1/nginx:/bitnami/nginx
+            - ./web/web1/logs:/opt/bitnami/nginx/logs
+            - ./web/web1/nginx:/bitnami/nginx
     web1-phpfpm:
         image: jengweb/php-fpm:7.1
         volumes:
             - /var/www/laravel-quickstart-production.com:/app
-            - /var/dockers/laravel-quickstart-production.com/web/web1/phpfpm:/bitnami/php-fpm
+            - ./web/web1/phpfpm:/bitnami/php-fpm
     web2:
         image: jengweb/nginx:1.12
         depends_on:
             - web2-phpfpm
         volumes:
             - /var/www/laravel-quickstart-production.com:/app
-            - /var/dockers/laravel-quickstart-production.com/web/web2/logs:/opt/bitnami/nginx/logs
-            - /var/dockers/laravel-quickstart-production.com/web/web2/nginx:/bitnami/nginx
+            - ./web/web2/logs:/opt/bitnami/nginx/logs
+            - ./web/web2/nginx:/bitnami/nginx
     web2-phpfpm:
         image: jengweb/php-fpm:7.1
         volumes:
             - /var/www/laravel-quickstart-production.com:/app
-            - /var/dockers/laravel-quickstart-production.com/web/web2/phpfpm:/bitnami/php-fpm
+            - ./web/web2/phpfpm:/bitnami/php-fpm
